@@ -8,6 +8,7 @@ namespace DataLayer.Entities
     {
         public int OrdreId { get; set; }
         public int KundeId { get; set; } //FK
+        public Kunde Kunde { get; set; }
         public DateTime BestillingsDato { get; set; }
         public ICollection<ProduktOrdrer> Produkter { get; set; }
     }

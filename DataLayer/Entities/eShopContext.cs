@@ -9,6 +9,11 @@ namespace DataLayer.Entities
 {
     public class eShopContext : DbContext
     {
+        public DbSet<Kategori> Kategorier { get; set; }
+        public DbSet<Kunde> Kunder { get; set; }
+        public DbSet<Ordre> Ordrer { get; set; }
+        public DbSet<Produkt> Produkter { get; set; }
+        public DbSet<ProduktFoto> ProduktFoto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = EfCoreInActionDb; Trusted_Connection = True; ")
@@ -18,7 +23,12 @@ namespace DataLayer.Entities
                 .AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information))
                 .BuildServiceProvider().GetService<ILoggerFactory>());
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProduktOrdrer>() //Composite foreignkey ved hjælp af anonymous type
+            .HasKey(t => new { t.ProduktId, t.OrdreId });
 
+        }
 
     }
 }
