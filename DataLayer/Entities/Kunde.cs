@@ -13,7 +13,6 @@ namespace DataLayer.Entities
         public string Email { get; set; }
         public int Telefon { get; set; }
         public string Kodeord { get; set; }
-        public bool Admin { get; set; }
         public ICollection<Ordre> Ordrer{get; set;}
     }
 }

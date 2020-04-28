@@ -9,14 +9,12 @@ namespace DataLayer.Entities
 {
     public class eShopContext : DbContext
     {
-        public DbSet<Kategori> Kategorier { get; set; }
         public DbSet<Kunde> Kunder { get; set; }
         public DbSet<Ordre> Ordrer { get; set; }
         public DbSet<Produkt> Produkter { get; set; }
-        public DbSet<ProduktFoto> ProduktFoto { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = EfCoreInActionDb; Trusted_Connection = True; ")
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = eShop; Trusted_Connection = True; ")
             .EnableSensitiveDataLogging(true)
             .UseLoggerFactory(new ServiceCollection()
             .AddLogging(builder => builder.AddConsole()
