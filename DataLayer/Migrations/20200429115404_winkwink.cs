@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class Initial : Migration
+    public partial class winkwink : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,7 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Producent",
+                name: "Producenter",
                 columns: table => new
                 {
                     ProducentId = table.Column<int>(nullable: false)
@@ -48,11 +48,11 @@ namespace DataLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Producent", x => x.ProducentId);
+                    table.PrimaryKey("PK_Producenter", x => x.ProducentId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ordrer",
+                name: "Ordre",
                 columns: table => new
                 {
                     OrdreId = table.Column<int>(nullable: false)
@@ -62,9 +62,9 @@ namespace DataLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ordrer", x => x.OrdreId);
+                    table.PrimaryKey("PK_Ordre", x => x.OrdreId);
                     table.ForeignKey(
-                        name: "FK_Ordrer_Kunder_KundeId",
+                        name: "FK_Ordre_Kunder_KundeId",
                         column: x => x.KundeId,
                         principalTable: "Kunder",
                         principalColumn: "KundeId",
@@ -92,9 +92,9 @@ namespace DataLayer.Migrations
                         principalColumn: "KategoriId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Produkter_Producent_ProducentId",
+                        name: "FK_Produkter_Producenter_ProducentId",
                         column: x => x.ProducentId,
-                        principalTable: "Producent",
+                        principalTable: "Producenter",
                         principalColumn: "ProducentId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -106,7 +106,7 @@ namespace DataLayer.Migrations
                     ProduktFotoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProduktId = table.Column<int>(nullable: true),
-                    Foto = table.Column<byte[]>(nullable: true)
+                    FotoUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -130,9 +130,9 @@ namespace DataLayer.Migrations
                 {
                     table.PrimaryKey("PK_ProduktOrdrer", x => new { x.ProduktId, x.OrdreId });
                     table.ForeignKey(
-                        name: "FK_ProduktOrdrer_Ordrer_OrdreId",
+                        name: "FK_ProduktOrdrer_Ordre_OrdreId",
                         column: x => x.OrdreId,
-                        principalTable: "Ordrer",
+                        principalTable: "Ordre",
                         principalColumn: "OrdreId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -144,8 +144,8 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ordrer_KundeId",
-                table: "Ordrer",
+                name: "IX_Ordre_KundeId",
+                table: "Ordre",
                 column: "KundeId");
 
             migrationBuilder.CreateIndex(
@@ -178,7 +178,7 @@ namespace DataLayer.Migrations
                 name: "ProduktOrdrer");
 
             migrationBuilder.DropTable(
-                name: "Ordrer");
+                name: "Ordre");
 
             migrationBuilder.DropTable(
                 name: "Produkter");
@@ -190,7 +190,7 @@ namespace DataLayer.Migrations
                 name: "Kategorier");
 
             migrationBuilder.DropTable(
-                name: "Producent");
+                name: "Producenter");
         }
     }
 }

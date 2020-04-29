@@ -81,7 +81,7 @@ namespace DataLayer.Migrations
 
                     b.HasIndex("KundeId");
 
-                    b.ToTable("Ordrer");
+                    b.ToTable("Ordre");
                 });
 
             modelBuilder.Entity("DataLayer.Entities.Producent", b =>
@@ -96,7 +96,7 @@ namespace DataLayer.Migrations
 
                     b.HasKey("ProducentId");
 
-                    b.ToTable("Producent");
+                    b.ToTable("Producenter");
                 });
 
             modelBuilder.Entity("DataLayer.Entities.Produkt", b =>
@@ -134,8 +134,8 @@ namespace DataLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("Foto")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("FotoUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProduktId")
                         .HasColumnType("int");

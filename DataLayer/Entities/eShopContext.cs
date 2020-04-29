@@ -24,7 +24,7 @@ namespace DataLayer.Entities
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0")
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=eShop;Trusted_Connection=True;ConnectRetryCount=0")
             .EnableSensitiveDataLogging(true)
             .UseLoggerFactory(new ServiceCollection()
             .AddLogging(builder => builder.AddConsole()

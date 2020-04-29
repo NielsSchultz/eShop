@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DataLayer.Entities
@@ -8,7 +9,8 @@ namespace DataLayer.Entities
     {
         public int ProduktFotoId { get; set; }
         public int? ProduktId { get; set; }//FK
-        public byte[] Foto { get; set; }
+        [DataType(DataType.ImageUrl)]
+        public string FotoUrl { get; set; }
         public Produkt Produkt { get; set; }
     }
 }
