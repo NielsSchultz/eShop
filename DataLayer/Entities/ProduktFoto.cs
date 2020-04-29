@@ -12,5 +12,6 @@ namespace DataLayer.Entities
         [DataType(DataType.ImageUrl)]
         public string FotoUrl { get; set; }
         public Produkt Produkt { get; set; }
+
     }
 }
