@@ -11,7 +11,7 @@ namespace DataLayer.Entities
         public int ProduktId { get; set; }
         [Column(TypeName = "decimal(8, 2)")]
         public decimal Pris { get; set; }
-        public int ProducentId { get; set; }//FK
+        public int ProducentId { get; set; } //FK
         public Kategori Kategori { get; set; }
         public Producent Producent { get; set; }
         public int KategoriId { get; set; } //FK
