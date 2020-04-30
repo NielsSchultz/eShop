@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{323D476F-B2A2-456A-BFCA-AB476C437CE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopUnitTest", "eShopUnitTest\eShopUnitTest.csproj", "{596170B5-0259-4E4C-8F5B-B7F28A299D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopUnitTest", "eShopUnitTest\eShopUnitTest.csproj", "{596170B5-0259-4E4C-8F5B-B7F28A299D8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{FAB46749-2332-4094-A959-2C8F7530CC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{FAB46749-2332-4094-A959-2C8F7530CC87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE7E3C70-B921-40BE-BCBE-2B276BE19CF2}"
+	ProjectSection(SolutionItems) = preProject
+		Markdown.md = Markdown.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

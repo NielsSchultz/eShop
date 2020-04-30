@@ -20,5 +20,7 @@ namespace ServiceLayer
             _context.Kategorier.Add(kategori);
             _context.SaveChanges();
         }
+
+
     }
 }

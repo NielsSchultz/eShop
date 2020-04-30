@@ -27,7 +27,6 @@ namespace eShopUnitTest
             // ASSERT: Use a separate instance of the context to verify correct data was saved to database
             using (var context = new eShopContext(options))
             {
-                //Assert.AreEqual(1, context.Kategorier.Count());
                 Assert.AreEqual("unittest2", context.Kategorier.Single().KategoriNavn);
             }
         }
