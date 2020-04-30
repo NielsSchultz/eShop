@@ -11,27 +11,27 @@ namespace ServiceLayer.ProduktService
         [Display(Name = "All")]
         NoFilter = 0,
         [Display(Name = "Efter Navn...")]
-        ByOwner,
+        Navn,
         [Display(Name = "Efter Pris...")]
-        ByRatings
+        Pris
     }
     public static class ProduktListDtoFilter
     {
-        public static IQueryable<ProduktListDto> FilterProduktBy(this IQueryable<ProduktListDto> blogs, ProduktFilterBy filterBy, string filterValue)
+        public static IQueryable<ProduktListDto> FilterProduktBy(this IQueryable<ProduktListDto> produkter, ProduktFilterBy filterBy, string filterValue)
         {
             if (string.IsNullOrEmpty(filterValue))
-                return blogs;
+                return produkter;
 
             switch (filterBy)
             {
                 case ProduktFilterBy.NoFilter:
-                    return blogs;
+                    return produkter;
 
-                case ProduktFilterBy.ByOwner:
-                    return blogs.Where(x => x.ProduktNavn == filterValue);
+                case ProduktFilterBy.Navn:
+                    return produkter.Where(x => x.ProduktNavn == filterValue);
 
-                case ProduktFilterBy.ByRatings:
-                    return blogs.Where(x => x.Pris >= int.Parse(filterValue));
+                case ProduktFilterBy.Pris:
+                    return produkter.Where(x => x.Pris >= int.Parse(filterValue));
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(filterBy), filterBy, null);
