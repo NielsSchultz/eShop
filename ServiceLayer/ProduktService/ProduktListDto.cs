@@ -9,7 +9,7 @@ namespace ServiceLayer.ProduktService
     {
         public string ProduktNavn { get; set; }
         public int ProduktId { get; set; }
-        [Column(TypeName = "Money")]
+        [Column(TypeName = "decimal(8, 2)")]
         public decimal Pris { get; set; }
     }
 }

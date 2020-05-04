@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,10 +29,10 @@ namespace ServiceLayer.ProduktService
                     return produkter;
 
                 case ProduktFilterBy.Navn:
-                    return produkter.Where(x => x.ProduktNavn == filterValue);
+                    return produkter.Where(x => EF.Functions.Like(x.ProduktNavn , $"%{filterValue}%"));
 
                 case ProduktFilterBy.Pris:
-                    return produkter.Where(x => x.Pris >= int.Parse(filterValue));
+                    return produkter.Where(x => x.Pris <= int.Parse(filterValue));
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(filterBy), filterBy, null);

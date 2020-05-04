@@ -14,38 +14,16 @@ namespace ConsoleApp
             using (var context = new eShopContext())
             {
 
-                #region Query for Filtering
-                //var blogService = new ListBlogService(context);
-                //var blogs = blogService.SortFilterPage(new SortFilterPageOptions
-                //{
-                //    OrderByOptions = OrderByOptions.SimpleOrder,
-                //    FilterBy = BlogsFilterBy.ByRatings,
-                //    FilterValue = "2"
-                //}).ToList();
-
-                //foreach (BlogListDto blog in blogs)
-                //{
-                //    Console.WriteLine("\nBlogId: {0} \nUrl: {1} \nRating: {2} \nOwner {3} \nNumber of Posts: {4}",
-                //        blog.BlogId,
-                //        blog.Url,
-                //        blog.Rating,
-                //        blog.Owner,
-                //        blog.NumberOfPosts
-                //        );
-                //} 
-                #endregion
-
-
                 #region pagingtest
                 var produktService = new ListProduktService(context);
                 var produkter = produktService.SortFilterPage(new SortFilterPageOptions
                 {
                     OrderByOptions = OrderByOptions.Navn,
-                    //FilterBy = ProduktFilterBy.Navn,
-                    //FilterValue = "ASUS",
+                    FilterBy = ProduktFilterBy.Navn,
+                    FilterValue = "A",
 
-                    PageNum = 1,
-                    PageSize = 2
+                    PageNum = 2,
+                    PageSize = 3
                 }).ToList();
 
                 foreach (ProduktListDto produkt in produkter)
