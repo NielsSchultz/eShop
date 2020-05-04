@@ -13,27 +13,39 @@ namespace ConsoleApp
         {
             using (var context = new eShopContext())
             {
-                // Tuples for DropDownControl i webclient
-                //var blogFilterDropdownService = new BlogFilterDropdownService(context);
-                //var dropdownItems = blogFilterDropdownService.GetFilterDropDownValues(BlogsFilterBy.ByOwner).ToList();
 
-                //foreach (var item in dropdownItems)
+                #region Query for Filtering
+                //var blogService = new ListBlogService(context);
+                //var blogs = blogService.SortFilterPage(new SortFilterPageOptions
                 //{
-                //    Console.WriteLine("{0} - {1}", item.Value, item.Text);
-                //}
+                //    OrderByOptions = OrderByOptions.SimpleOrder,
+                //    FilterBy = BlogsFilterBy.ByRatings,
+                //    FilterValue = "2"
+                //}).ToList();
+
+                //foreach (BlogListDto blog in blogs)
+                //{
+                //    Console.WriteLine("\nBlogId: {0} \nUrl: {1} \nRating: {2} \nOwner {3} \nNumber of Posts: {4}",
+                //        blog.BlogId,
+                //        blog.Url,
+                //        blog.Rating,
+                //        blog.Owner,
+                //        blog.NumberOfPosts
+                //        );
+                //} 
+                #endregion
 
 
-
-
+                #region pagingtest
                 var produktService = new ListProduktService(context);
                 var produkter = produktService.SortFilterPage(new SortFilterPageOptions
                 {
                     OrderByOptions = OrderByOptions.Navn,
-                    //FilterBy = BlogsFilterBy.ByOwner,
-                    //FilterValue = "Person 3"
+                    //FilterBy = ProduktFilterBy.Navn,
+                    //FilterValue = "ASUS",
 
                     PageNum = 1,
-                    PageSize = 5
+                    PageSize = 2
                 }).ToList();
 
                 foreach (ProduktListDto produkt in produkter)
@@ -43,6 +55,7 @@ namespace ConsoleApp
                         produkt.Pris
                         );
                 }
+                #endregion
             }
         }
     }
