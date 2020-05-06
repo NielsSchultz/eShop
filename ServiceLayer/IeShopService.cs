@@ -14,6 +14,8 @@ namespace ServiceLayer
         Produkt Update(Produkt updatedProdukt);
         Produkt Add(Produkt newProdukt);
         Produkt Delete(int id);
+        IQueryable<Kunde> GetKunder();
+        Kunde LoginCheck(string email, string kodeord);
         int Commit();
     }
 }

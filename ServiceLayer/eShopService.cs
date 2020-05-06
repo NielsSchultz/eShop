@@ -1,4 +1,5 @@
 ﻿using DataLayer.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,9 @@ namespace ServiceLayer
         public IQueryable<Produkt> GetProdukterByName(string name = null)
         {
             return _context.Produkter
+                .Include(f => f.ProduktFoto)
+                .Include(k => k.Kategori)
+                .Include(p => p.Producent)
                 .Where(r => string.IsNullOrEmpty(name) || r.ProduktNavn.StartsWith(name))
                 .OrderBy(r => r.ProduktNavn);
         }
@@ -63,5 +67,21 @@ namespace ServiceLayer
             return produkt;
         }
 
+        public IQueryable<Kunde> GetKunder()
+        {
+            return _context.Kunder;
+        }
+        public Kunde LoginCheck(string email, string kodeord)
+        {
+            var kunder = GetKunder();
+            foreach (Kunde kunde in kunder)
+            {
+                if (kunde.Email == email && kunde.Kodeord == kodeord)
+                {
+                    return kunde;
+                }
+            }
+            return null;
+        }
     }
 }

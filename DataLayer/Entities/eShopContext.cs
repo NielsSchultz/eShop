@@ -47,7 +47,6 @@ namespace DataLayer.Entities
                 new Producent { ProducentNavn = "LG", ProducentId = 9 },
                 new Producent { ProducentNavn = "Razer", ProducentId = 10 },
                 new Producent { ProducentNavn = "Steelseries", ProducentId = 11 }
-
                 );
 
             modelBuilder.Entity<Kategori>().HasData(
@@ -99,7 +98,36 @@ namespace DataLayer.Entities
             modelBuilder.Entity<ProduktFoto>().HasData(
                 new ProduktFoto { ProduktId= 23, ProduktFotoId=1, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D180001002410624/153758/lg-48-cx-4k-oled-tv-oled48cx.jpg?$fullsize$" },
                 new ProduktFoto { ProduktId= 23, ProduktFotoId=2, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D180001002410670/153758/lg-48-cx-4k-oled-tv-oled48cx.jpg?$fullsize$" },
-                new ProduktFoto { ProduktId= 23, ProduktFotoId=3, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D180001002410669/153758/lg-48-cx-4k-oled-tv-oled48cx.jpg?$prod_all4one$" }
+                new ProduktFoto { ProduktId= 23, ProduktFotoId=3, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D180001002410669/153758/lg-48-cx-4k-oled-tv-oled48cx.jpg?$prod_all4one$" },
+                new ProduktFoto { ProduktId= 1, ProduktFotoId=4, FotoUrl= "https://www.komplett.dk/img/p/1200/1135677.jpg" },
+                new ProduktFoto { ProduktId= 2, ProduktFotoId=5, FotoUrl= "https://www.komplett.dk/img/p/1200/1139034.jpg" },
+                new ProduktFoto { ProduktId= 3, ProduktFotoId=6, FotoUrl= "https://www.komplett.dk/img/p/1200/1149212.jpg" },
+                new ProduktFoto { ProduktId= 4, ProduktFotoId=7, FotoUrl= "https://www.komplett.dk/img/p/1200/1148757.jpg" },
+                new ProduktFoto { ProduktId= 5, ProduktFotoId=8, FotoUrl= "https://www.komplett.dk/img/p/1200/1153467.jpg" },
+                new ProduktFoto { ProduktId= 6, ProduktFotoId=9, FotoUrl= "https://www.komplett.dk/img/p/1200/1156443.jpg" },
+                new ProduktFoto { ProduktId= 7, ProduktFotoId=10, FotoUrl= "https://www.komplett.dk/img/p/1200/1135667.jpg" },
+                new ProduktFoto { ProduktId= 8, ProduktFotoId=11, FotoUrl= "https://www.komplett.dk/img/p/1200/1132405.jpg" },
+                new ProduktFoto { ProduktId= 9, ProduktFotoId=12, FotoUrl= "https://www.komplett.dk/img/p/1200/898464.jpg" },
+                new ProduktFoto { ProduktId= 10, ProduktFotoId=13, FotoUrl= "https://sg-next.imgix.net/medias/sys_master/root/hbd/h3a/13735092912158/MacBook-Pro-16-in-Pure-Front-Space-Gray-SCREEN-result.jpg?w=350&h=350&auto=format&fm=jpg" },
+                new ProduktFoto { ProduktId= 11, ProduktFotoId=14, FotoUrl= "https://www.komplett.dk/img/p/1000/1137677.jpg" },
+                new ProduktFoto { ProduktId= 12, ProduktFotoId=15, FotoUrl= "https://www.komplett.dk/img/p/1200/1150472.jpg" },
+                new ProduktFoto { ProduktId= 13, ProduktFotoId=16, FotoUrl= "https://www.komplett.dk/img/p/1200/1146637.jpg" },
+                new ProduktFoto { ProduktId= 14, ProduktFotoId=17, FotoUrl= "https://www.komplett.dk/img/p/1200/1132707.jpg" },
+                new ProduktFoto { ProduktId= 15, ProduktFotoId=18, FotoUrl= "https://www.komplett.dk/img/p/1200/1153777.jpg" },
+                new ProduktFoto { ProduktId= 16, ProduktFotoId=19, FotoUrl= "https://www.komplett.dk/img/p/1200/1151019.jpg" },
+                new ProduktFoto { ProduktId= 17, ProduktFotoId=20, FotoUrl= "https://www.komplett.dk/img/p/1200/1149587.jpg" },
+                new ProduktFoto { ProduktId= 18, ProduktFotoId=21, FotoUrl= "https://www.komplett.dk/img/p/1200/1138869.jpg" },
+                new ProduktFoto { ProduktId= 19, ProduktFotoId=22, FotoUrl= "https://www.komplett.dk/img/p/1200/1157749.jpg" },
+                new ProduktFoto { ProduktId= 20, ProduktFotoId=23, FotoUrl= "https://www.komplett.dk/img/p/1080/1124639.jpg" },
+                new ProduktFoto { ProduktId= 21, ProduktFotoId=24, FotoUrl= "https://www.komplett.dk/img/p/1080/1124646.jpg" },
+                new ProduktFoto { ProduktId= 22, ProduktFotoId=25, FotoUrl= "https://www.komplett.dk/img/p/1200/1130516.jpg" },
+                new ProduktFoto { ProduktId= 23, ProduktFotoId=26, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D180001002410624/153758/lg-48-cx-4k-oled-tv-oled48cx.jpg?$fullsize$" },
+                new ProduktFoto { ProduktId= 24, ProduktFotoId=27, FotoUrl= "https://www.elgiganten.dk/image/dv_web_D18000100296972/12851/razer-blackwidow-elite-gaming-tastatur.jpg?$fullsize$" },
+                new ProduktFoto { ProduktId= 25, ProduktFotoId=28, FotoUrl= "https://www.komplett.dk/img/p/1200/1144808.jpg" },
+                new ProduktFoto { ProduktId= 26, ProduktFotoId=29, FotoUrl= "https://www.komplett.dk/img/p/1200/1127733.jpg" },
+                new ProduktFoto { ProduktId= 27, ProduktFotoId=30, FotoUrl= "https://www.komplett.dk/img/p/1200/1146944.jpg" },
+                new ProduktFoto { ProduktId= 28, ProduktFotoId=31, FotoUrl= "https://www.komplett.dk/img/p/1200/1150475.jpg" },
+                new ProduktFoto { ProduktId= 29, ProduktFotoId=32, FotoUrl= "https://www.komplett.dk/img/p/1200/1041072.jpg" }
                 );
         }
 
