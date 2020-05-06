@@ -9,8 +9,6 @@ namespace DataLayer.Entities
 {
     public class eShopContext : DbContext
     {
-        public eShopContext()
-        { }
         public eShopContext(DbContextOptions<eShopContext> options)
             : base(options)
         { }

@@ -1,0 +1,12 @@
+﻿@using DataLayer.Entities
+@model Produkt
+
+<div class="col-sm-3">
+    <div class="card my-3">
+        @*<img class="card-img-top" src="@Model.ProduktFoto.Take(1).Select(p => p.FotoUrl)">*@
+        <div class="card-body">
+            <h5 class="card-title">@Model.ProduktNavn </h5>
+            <p class="card-text">@Model.Pris </p>
+        </div>
+    </div>
+</div>
