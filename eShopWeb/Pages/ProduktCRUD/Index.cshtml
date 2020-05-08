@@ -1,0 +1,54 @@
+﻿@page
+@model eShopWeb.Pages.ProduktCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Produkt[0].ProduktNavn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produkt[0].Pris)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produkt[0].Kategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produkt[0].Producent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Produkt) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProduktNavn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pris)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producent.ProducentId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-ProduktId="@item.ProduktId">Edit</a> |
+                <a asp-page="./Details" asp-route-ProduktId="@item.ProduktId">Details</a> |
+                <a asp-page="./Delete" asp-route-ProduktId="@item.ProduktId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

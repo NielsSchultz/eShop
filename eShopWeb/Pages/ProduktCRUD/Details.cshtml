@@ -1,0 +1,19 @@
+﻿@page "{ProduktId:int}"
+@model eShopWeb.Pages.ProduktCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Produkt.ProduktNavn;
+}
+
+<h2>@Model.Produkt.ProduktNavn</h2>
+@*<div>
+        <img src="@Model.ProduktFoto.Select(c=>c.FotoUrl).First()" alt="Alternate Text" class="img-thumbnail my-4" />
+    </div>*@
+
+<div>
+    Pris: @Model.Produkt.Pris
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-produktId="@Model.Produkt.ProduktId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

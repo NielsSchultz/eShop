@@ -1,0 +1,17 @@
+﻿@page "{ProduktId:int}"
+@model eShopWeb.Pages.DetailProduktModel
+@{
+    ViewData["Title"] = Model.Produkt.ProduktNavn;
+}
+
+<h2>@Model.Produkt.ProduktNavn</h2>
+<div>
+        <img src="@Model.Produkt.ProduktFoto.First().FotoUrl " alt="Alternate Text" class="img-thumbnail my-4" />
+    </div>
+
+<div>
+    Pris: @Model.Produkt.Pris
+</div>
+<div>
+    <a asp-page="./Index">Tilbage til forsiden</a>
+</div>

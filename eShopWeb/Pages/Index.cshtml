@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Fakeshop Forside";
+}
+    <form method="get">
+        <div class="input-group mb-3">
+            <input type="search" asp-for="@Model.SearchTerm" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="card-deck">
+        @foreach (var produkt in Model.Produkter)
+        {
+            <partial name="_Summary" model="produkt" />
+        }
+    </div>

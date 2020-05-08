@@ -18,11 +18,11 @@ namespace eShopUnitTest
                 .Options;
 
             // ACT: Run the test against one instance of the context
-            using (var context = new eShopContext(options))
-            {
-                var service = new eShopService(context);
-                service.OpretKategori("unittest2");
-            }
+            //using (var context = new eShopContext(options))
+            //{
+            //    var service = new eShopService(context);
+            //    service.OpretKategori("unittest2");
+            //}
 
             // ASSERT: Use a separate instance of the context to verify correct data was saved to database
             using (var context = new eShopContext(options))

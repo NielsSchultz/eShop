@@ -1,0 +1,16 @@
+﻿@page
+@model eShopWeb.Pages.ProduktCRUD.DeleteModel
+
+@{
+    ViewData["Title"] = "Slet produkt";
+}
+
+<h1>Slet produkt</h1>
+
+<div class="alert alert-danger">
+    Er du sikker på at du vil slette @Model.Produkt.ProduktNavn ?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Slet!</button>
+    <a asp-page="./List" class="btn btn-outline-danger">Fortryd</a>
+</form>
