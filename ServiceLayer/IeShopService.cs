@@ -9,6 +9,8 @@ namespace ServiceLayer
     public interface IeShopService
     {
         IQueryable<Produkt> GetProdukter();
+        IQueryable<Kategori> GetKategorier();
+        IQueryable<Producent> GetProducenter();
         IQueryable<Produkt> GetProdukterByName(string name = null);
         Produkt GetProduktById(int produktId);
         Produkt Update(Produkt updatedProdukt);

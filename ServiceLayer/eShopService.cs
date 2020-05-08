@@ -21,7 +21,14 @@ namespace ServiceLayer
         {
             return _context.Produkter;
         }
-
+        public IQueryable<Kategori> GetKategorier()
+        {
+            return _context.Kategorier;
+        }
+        public IQueryable<Producent> GetProducenter()
+        {
+            return _context.Producenter;
+        }
         public IQueryable<Produkt> GetProdukterByName(string name = null)
         {
             return _context.Produkter
@@ -34,11 +41,16 @@ namespace ServiceLayer
 
         public Produkt GetProduktById(int produktId)
         {
-            return _context.Produkter.Find(produktId);
+            return _context.Produkter
+                .Include(p => p.Producent)
+                .Include(f => f.ProduktFoto)
+                .Include(k => k.Kategori)
+                .SingleOrDefault(x => x.ProduktId == produktId);
         }
 
         public Produkt Update(Produkt updatedProdukt)
         {
+            
             _context.Produkter.Update(updatedProdukt);
             
 
