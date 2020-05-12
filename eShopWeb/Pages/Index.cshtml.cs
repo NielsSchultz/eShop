@@ -40,6 +40,7 @@ namespace eShopWeb.Pages
         public void OnGet()
         {
             Produkter = _eShopService.GetProdukterByName(SearchTerm).ToList();
+
         }
     }
 }

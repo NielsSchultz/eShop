@@ -35,8 +35,9 @@ namespace ServiceLayer
                 .Include(f => f.ProduktFoto)
                 .Include(k => k.Kategori)
                 .Include(p => p.Producent)
-                .Where(r => string.IsNullOrEmpty(name) || r.ProduktNavn.StartsWith(name))
+                .Where(r => string.IsNullOrEmpty(name) || r.ProduktNavn.Contains(name) || r.Producent.ProducentNavn.Contains(name) || r.Kategori.KategoriNavn.Contains(name))
                 .OrderBy(r => r.ProduktNavn);
+
         }
 
         public Produkt GetProduktById(int produktId)

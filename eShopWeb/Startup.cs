@@ -28,7 +28,7 @@ namespace eShopWeb
             services.AddScoped<IeShopService, eShopService>();
 
             services.AddRazorPages();
-
+            services.AddSession();
             services.AddDbContext<DataLayer.Entities.eShopContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("eShopContext")));
         }
@@ -51,9 +51,8 @@ namespace eShopWeb
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

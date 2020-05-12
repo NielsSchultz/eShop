@@ -5,9 +5,17 @@
 }
 
 <h2>@Model.Produkt.ProduktNavn</h2>
-<div>
-        <img src="@Model.Produkt.ProduktFoto.First().FotoUrl " alt="Alternate Text" class="img-thumbnail my-4" />
-    </div>
+@if (@Model.Produkt.ProduktFoto.Select(c => c.FotoUrl).Count() >= 1)
+{
+    <img class="card-img-top" src="@Model.Produkt.ProduktFoto.Select(c=>c.FotoUrl).First() ">
+}
+else
+{
+    <img class="card-img-top" src="https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/181/2019/09/09091628/Image-Coming-Soon.png">
+
+}
+<p>@Model.Produkt.Kategori.KategoriNavn</p>
+<p>@Model.Produkt.Producent.ProducentNavn</p>
 
 <div>
     Pris: @Model.Produkt.Pris

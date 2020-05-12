@@ -1,4 +1,9 @@
-﻿@model DataLayer.Entities.Kunde
-
-        Hej @Model.Fornavn 
-  
+﻿@model List<DataLayer.Entities.Produkt>
+@if (Model != null)
+{
+    <span>@Model.Count()</span>
+}
+else
+{
+    <span>test</span>
+}
