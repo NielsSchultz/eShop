@@ -7,18 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using ServiceLayer;
 
 namespace eShopWeb.Pages
 {
     public class IndexModel : PageModel
     {
-        //private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexModel> _logger;
 
-        //public IndexModel(ILogger<IndexModel> logger)
-        //{
-        //    _logger = logger;
-        //}
         public IEnumerable<Produkt> Produkter { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -32,15 +29,34 @@ namespace eShopWeb.Pages
 
         private readonly IeShopService _eShopService;
 
-        public IndexModel(IeShopService eShopService)
+        public IndexModel(IeShopService eShopService, ILogger<IndexModel> logger)
         {
             _eShopService = eShopService;
+            _logger = logger;
         }
 
         public void OnGet()
         {
-            Produkter = _eShopService.GetProdukterByName(SearchTerm).ToList();
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
 
+
+
+            Log.Information("Loading index");
+
+            try
+            {
+                Produkter = _eShopService.GetProdukterByName(SearchTerm).ToList();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Det virker squ ik");
+            }
+
+            Log.CloseAndFlush();
         }
     }
 }

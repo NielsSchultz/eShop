@@ -23,7 +23,7 @@ namespace eShopWeb.Pages
 
         public IActionResult OnGet(int ProduktId)
         {
-            ProduktKurv vareKurvKlasse = new ProduktKurv();
+            //ProduktKurv vareKurvKlasse = new ProduktKurv();
             
             Produkt = _eShopService.GetProduktById(ProduktId);
             kurv.Add(new Produkt 
@@ -32,7 +32,7 @@ namespace eShopWeb.Pages
                 ProduktNavn = Produkt.ProduktNavn,
                 Pris = Produkt.Pris
             });
-            vareKurvKlasse.vareKurv = kurv;
+            //vareKurvKlasse.vareKurv = kurv;
             //vareKurvKlasse.vareKurv.Add(Produkt);
             HttpContext.Session.Set("kurv", kurv);
             if (Produkt == null)
@@ -42,8 +42,8 @@ namespace eShopWeb.Pages
             return Page();
         }
     }
-    public class ProduktKurv
-    {
-        public List<Produkt> vareKurv { get; set; }
-    }
+    //public class ProduktKurv
+    //{
+    //    public List<Produkt> vareKurv { get; set; }
+    //}
 }
