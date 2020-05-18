@@ -3,6 +3,26 @@ for details on configuring this project to bundle and minify static web assets. 
 .collection {
     border: hidden !important;
 }
+.collection-item {
+    padding: 10px 20px;
+    padding-left: 5px !important;
+    margin-left: 0 !important;
+}
+.collection>ul {
+    margin-top:0 !important;
+}
+.collection-item:hover button,
+.collection-item:hover {
+    background-color: #ddd !important;
+    cursor: pointer;
+}
+    .collection-item button {
+        border: 0 !important;
+        padding:0 !important;
+        text-align: left;
+        width: 100%;
+        color: #26a69a;
+    }
 a.navbar-brand {
   white-space: normal;
   text-align: center;
