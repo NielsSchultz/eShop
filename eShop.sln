@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Markdown.md = Markdown.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopWeb", "eShopWeb\eShopWeb.csproj", "{1493395F-388A-4CBE-9E6A-E955422F6E03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopWeb", "eShopWeb\eShopWeb.csproj", "{1493395F-388A-4CBE-9E6A-E955422F6E03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

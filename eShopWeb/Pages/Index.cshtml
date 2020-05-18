@@ -1,22 +1,52 @@
-﻿@page
+﻿@page  "{handler?}/{navn?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Fakeshop Forside";
 }
+<div class="col xl10 center-align container">
     <form method="get">
-        <div class="input-group mb-3">
-            <input type="search" asp-for="@Model.SearchTerm" class="form-control">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
+        <div class="row">
+            <div class="input-group valign-wrapper">
+                <label class="label-icon" for="search">
+                    <button type="submit" class="input-group-addon btn"><i class="material-icons">search</i></button>
+                </label>
+                <div class="input-field col s12">
+                    <input id="search" type="text" style="border-bottom: 1px solid #000; box-shadow: 0 1px 0 0 #000" asp-for="@Model.SearchTerm">
+                </div>
             </div>
         </div>
     </form>
+</div>
 
-    <div class="card-deck">
-        @foreach (var produkt in Model.Produkter)
+<div class="row">
+    <div class="col s2 collection">
+        @foreach (var kategori in @Model.Kategorier)
         {
-            <partial name="_Summary" model="produkt" />
+            <a href="#!" class="collection-item">@kategori.KategoriNavn</a>
         }
     </div>
+    <div class="col s8">
+        <div class="row">
+            @foreach (var produkt in Model.Produkter)
+            {
+                <partial name="_Summary" model="produkt" />
+            }
+            @if (Model.Produkter.Count() < 1)
+            {
+                <h3 center-align>Vi fandt desværre ingen produkter som matcher din søgning</h3>
+            }
+        </div>
+    </div>
+    <div class="col s2 collection">
+        @foreach (var producent in @Model.Producenter)
+        {
+            @*<a href="#!" class="collection-item">@producent.ProducentNavn</a>*@
+            <div class="row">
+                <form method="post" asp-route-producentnavn="@producent.ProducentNavn" asp-page-handler="Producent">
+                    <button type="submit" value="@producent.ProducentNavn"/>
+                    <input type="hidden" name="producent" value="@producent.ProducentNavn" />
+                </form>
+            </div>
+        }
+    </div>
+</div>

@@ -5,42 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - eShopWeb</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="teal lighten-5">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">eShopWeb</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo center" asp-area="" asp-page="/Index"><i class="large material-icons">sentiment_very_satisfied</i>eShopWeb</a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li>
+                            <a class="text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li>
+                            <a class="text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <mini-profiler />
-
                     </ul>
-                </div>
-                <div class="text-dark align-items-end">
-                    <vc:user></vc:user>
-                </div>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>
+                            <div class="col s3">
+                                <a class="waves-effect waves-light btn valign-wrapper" asp-page="/Kassen"><i class="material-icons left">shopping_cart</i><vc:user></vc:user></a>
+                            </div>
+                            @*<a asp-page="/Kassen"><vc:user></vc:user></a>*@
+                        </li>
+                    </ul>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
+        <div>
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - eShopWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>

@@ -1,9 +1,9 @@
 ﻿@model List<DataLayer.Entities.Produkt>
-@if (Model != null)
+@if (Model.Count() > 0)
 {
-    <span>@Model.Count()</span>
+    <span>Varer i kurven: @Model.Count()</span>
 }
 else
 {
-    <span>test</span>
+    <span>Din kurv er tom</span>
 }

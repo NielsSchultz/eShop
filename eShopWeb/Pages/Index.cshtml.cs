@@ -17,6 +17,8 @@ namespace eShopWeb.Pages
         private readonly ILogger<IndexModel> _logger;
 
         public IEnumerable<Produkt> Produkter { get; set; }
+        public IEnumerable<Kategori> Kategorier { get; set; }
+        public IEnumerable<Producent> Producenter { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
@@ -50,10 +52,35 @@ namespace eShopWeb.Pages
             try
             {
                 Produkter = _eShopService.GetProdukterByName(SearchTerm).ToList();
+                Kategorier = _eShopService.GetKategorier().ToList();
+                Producenter = _eShopService.GetProducenter().ToList();
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Det virker squ ik");
+                Log.Error(ex, "Det virker squ ik(OnGet)");
+            }
+
+            Log.CloseAndFlush();
+        }
+        public void OnPostProducent(string producentNavn)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
+            Log.Information("Loading index");
+
+            try
+            {
+                Produkter = _eShopService.GetProdukterByName(producentNavn).ToList();
+                Kategorier = _eShopService.GetKategorier().ToList();
+                Producenter = _eShopService.GetProducenter().ToList();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Det virker squ ik(OnPostProducent)");
             }
 
             Log.CloseAndFlush();

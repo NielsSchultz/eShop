@@ -13,7 +13,7 @@ namespace ServiceLayer
 
         public eShopService(eShopContext context)
         {
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
             _context = context;
         }
 

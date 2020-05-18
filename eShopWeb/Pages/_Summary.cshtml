@@ -1,25 +1,34 @@
 ﻿@using DataLayer.Entities
 @model Produkt
 
-<div class="col-sm-3">
-    <div class="card my-3">
-        @if (@Model.ProduktFoto.Select(c => c.FotoUrl).Count() >= 1)
-        {
-            <img class="card-img-top" src="@Model.ProduktFoto.Select(c=>c.FotoUrl).First() ">
-        }
-        else
-        {
-            <img class="card-img-top" src="https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/181/2019/09/09091628/Image-Coming-Soon.png"> 
-        }
-    <div class="card-body">
-        <h5 class="card-title">@Model.ProduktNavn </h5>
-        <p class="card-text">@Model.Pris </p>
-        
-    </div>
-        <div class="card-footer text-muted">
+<div class="col xl4 l6 m12 s12">
+    <div class="card">
+        <div class="card-image">
             <a asp-page="./DetailProdukt" asp-route-ProduktId="@Model.ProduktId">
-                <p class="card-text">Læs mere </p>
+                @if (@Model.ProduktFoto.Select(c => c.FotoUrl).Count() >= 1)
+                {
+                    <img style="height:290px" src="@Model.ProduktFoto.Select(c=>c.FotoUrl).First()">
+                }
+                else
+                {
+                    <img class="responsive-img" src="https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/181/2019/09/09091628/Image-Coming-Soon.png">
+                }
             </a>
+        </div>
+        <div class="card-content">
+            <a asp-page="./DetailProdukt" asp-route-ProduktId="@Model.ProduktId"><span class="card-title truncate">@Model.ProduktNavn</span></a>
+            <div class="row valign-wrapper">
+                <div class="col xl6">
+                    <p>Pris: @Model.Pris</p>
+                </div>
+                <div class="col xl6">
+                    <form method="post">
+                        <div class="form-group">
+                            <button type="submit" class="btn right"><i class="material-icons">add_shopping_cart</i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

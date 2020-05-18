@@ -1,0 +1,36 @@
+﻿@page
+@model eShopWeb.Pages.KassenModel
+
+<h1>Velkommen til kassen</h1>
+@if (Model.Kunden == null)
+{
+    <h3>For at fortsætte med dit køb kræver det at du er <a asp-page="Login">logget ind</a></h3>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <label>Produkt</label>
+                </th>
+                <th>
+                    <label>Pris</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.vareKurv)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProduktNavn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pris)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

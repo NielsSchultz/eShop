@@ -18,7 +18,6 @@ namespace DataLayer.Entities
         public DbSet<Kategori> Kategorier { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
 
             if (!optionsBuilder.IsConfigured)
             {
