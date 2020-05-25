@@ -1,7 +1,15 @@
-﻿@model List<DataLayer.Entities.Produkt>
+﻿@model List<ServiceLayer.ProduktService.Dto.ProduktDto>
+@{ 
+    int varer = 0;
+    foreach (var vare in Model)
+    {
+        varer += vare.Styk;
+    }
+}
+
 @if (Model.Count() > 0)
 {
-    <span>Varer i kurven: @Model.Count()</span>
+    <span>Varer i kurven: @varer</span>
 }
 else
 {

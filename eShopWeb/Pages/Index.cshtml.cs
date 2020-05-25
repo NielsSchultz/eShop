@@ -67,6 +67,10 @@ namespace eShopWeb.Pages
 
             Log.CloseAndFlush();
         }
+        /// <summary>
+        /// til søgning på producent
+        /// </summary>
+        /// <param name="producentNavn"></param>
         public void OnPostProducent(string producentNavn)
         {
             Log.Logger = new LoggerConfiguration()
@@ -90,6 +94,10 @@ namespace eShopWeb.Pages
 
             Log.CloseAndFlush();
         }
+        /// <summary>
+        /// Til søgning på kategori
+        /// </summary>
+        /// <param name="kategoriNavn"></param>
         public void OnPostKategori(string kategoriNavn)
         {
             Log.Logger = new LoggerConfiguration()
@@ -113,7 +121,12 @@ namespace eShopWeb.Pages
 
             Log.CloseAndFlush();
         }
-        public async void OnPostAddToCart(int produktId)
+        /// <summary>
+        /// tilføjer til varekurven
+        /// </summary>
+        /// <param name="produktId"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> OnPostAddToCart(int produktId)
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -131,17 +144,25 @@ namespace eShopWeb.Pages
                 {
                     kurv = new List<ProduktDto>();
                 }
-                //kurv.Add(Produkt);
-                kurv.Add(new ProduktDto
+                ProduktDto ordreprodukt = kurv.Find(i => i.ProduktId == produktId);
+                if (ordreprodukt != null)
                 {
-                    ProduktId = ProduktDto.ProduktId,
-                    ProduktNavn = ProduktDto.ProduktNavn,
-                    Pris = ProduktDto.Pris,
-                    Styk = ProduktDto.Styk += 1
-                });
+                    ordreprodukt.Styk += 1;
+                }
+                else
+                {
+                    kurv.Add(new ProduktDto
+                    {
+                        ProduktId = ProduktDto.ProduktId,
+                        ProduktNavn = ProduktDto.ProduktNavn,
+                        Pris = ProduktDto.Pris,
+                        Styk = ProduktDto.Styk = 1
+                    });
+                }
+                
                 HttpContext.Session.Set("kurv", kurv);
-
             }
+
             try
             {
                 Produkter = await _eShopService.GetProdukterByName().ToListAsync();
@@ -154,6 +175,7 @@ namespace eShopWeb.Pages
             }
 
             Log.CloseAndFlush();
+            return Page();
         }
     }
 }

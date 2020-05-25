@@ -4,6 +4,7 @@ using eShopWeb.Pages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer;
+using ServiceLayer.ProduktService.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,8 @@ namespace eShopWeb.ViewComponents
         public IViewComponentResult Invoke()
         {
             //var kunde = _eShopService.LoginCheck("niel862b@elevcampus.dk", "Qwerty123");
-            List<Produkt> tempkurv = new List<Produkt>();
-            var varekurv = HttpContext.Session.Get<List<Produkt>>("kurv");
+            List<ProduktDto> tempkurv = new List<ProduktDto>();
+            var varekurv = HttpContext.Session.Get<List<ProduktDto>>("kurv");
             if (varekurv != null)
             {
                 return View(varekurv);
