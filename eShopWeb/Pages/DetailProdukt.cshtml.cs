@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DataLayer.Entities;
 using eShopWeb.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -21,20 +22,20 @@ namespace eShopWeb.Pages
         }
 
 
-        public IActionResult OnGet(int ProduktId)
+        public async Task<IActionResult> OnGetAsync(int ProduktId)
         {
-            Produkt = _eShopService.GetProduktById(ProduktId);
+            Produkt =  await _eShopService.GetProduktById(ProduktId);
             if (Produkt == null)
             {
                 return NotFound();
             }
             return Page();
         }
-        public IActionResult OnPost(int ProduktId)
+        public async Task<IActionResult> OnPostAsync(int ProduktId)
         {
             if (ModelState.IsValid)
             {
-                Produkt = _eShopService.GetProduktById(ProduktId);
+                Produkt = await _eShopService.GetProduktById(ProduktId);
                 if (Produkt == null)
                 {
                     return NotFound();
@@ -44,7 +45,6 @@ namespace eShopWeb.Pages
                 {
                     kurv = new List<Produkt>();
                 }
-                //kurv.Add(Produkt);
                 kurv.Add(new Produkt
                 {
                     ProduktId = Produkt.ProduktId,

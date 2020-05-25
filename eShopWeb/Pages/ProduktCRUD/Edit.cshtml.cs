@@ -25,26 +25,26 @@ namespace eShopWeb.Pages.ProduktCRUD
         }
 
         
-        public IActionResult OnGet(int? produktid)
+        public async Task<IActionResult> OnGetAsync(int? produktid)
         {
-            Kategorier = _eShopService.GetKategorier().Select(
+            Kategorier = await _eShopService.GetKategorier().Select(
                 kategorinavn => new SelectListItem
                 {
                     Value = kategorinavn.KategoriId.ToString(),
                     Text = kategorinavn.KategoriNavn
-                }).ToList();
+                }).ToListAsync();
 
-            Producenter = _eShopService.GetProducenter().Select(
+            Producenter = await _eShopService.GetProducenter().Select(
                 producentnavn => new SelectListItem
                 {
                     Value = producentnavn.ProducentId.ToString(),
                     Text = producentnavn.ProducentNavn
-                }).ToList();
+                }).ToListAsync();
 
 
             if (produktid != null)
             {
-                Produkt = _eShopService.GetProduktById(produktid.Value);
+                Produkt = await _eShopService.GetProduktById(produktid.Value);
             }
             
 

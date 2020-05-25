@@ -1,5 +1,13 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+.card-img-top{
+    max-height:25% !important;
+    max-width: 35% !important;
+}
+.card-img-smoll {
+    max-height: 10% !important;
+    max-width: 15% !important;
+}
 .collection {
     border: hidden !important;
 }

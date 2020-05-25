@@ -20,14 +20,14 @@ namespace eShopWeb.Pages.ProduktCRUD
             _eShopService = eShopService;
         }
 
-        public IActionResult OnGet(int? produktid)
+        public async Task<IActionResult> OnGet(int? produktid)
         {
             if (produktid == null)
             {
                 return NotFound();
             }
 
-            Produkt = _eShopService.GetProduktById(produktid.Value);
+            Produkt = await _eShopService.GetProduktById(produktid.Value);
 
             if (Produkt == null)
             {
@@ -36,14 +36,14 @@ namespace eShopWeb.Pages.ProduktCRUD
             return Page();
         }
 
-        public IActionResult OnPost(int? produktid)
+        public async Task<IActionResult> OnPost(int? produktid)
         {
 
-            Produkt = _eShopService.GetProduktById(produktid.Value);
+            Produkt = await _eShopService.GetProduktById(produktid.Value);
 
             if (Produkt != null)
             {
-                _eShopService.Delete(Produkt.ProduktId);
+                await _eShopService.Delete(Produkt.ProduktId);
                 _eShopService.Commit();
             }
 

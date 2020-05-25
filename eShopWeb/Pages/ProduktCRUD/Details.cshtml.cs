@@ -21,10 +21,10 @@ namespace eShopWeb.Pages.ProduktCRUD
         }
 
 
-        public IActionResult OnGet(int ProduktId)
+        public async Task<IActionResult> OnGetAsync(int ProduktId)
         {
             
-            Produkt = _eShopService.GetProduktById(ProduktId);
+            Produkt = await _eShopService.GetProduktById(ProduktId);
 
             if (Produkt == null)
             {

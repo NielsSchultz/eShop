@@ -1,9 +1,11 @@
 ﻿using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
+using ServiceLayer.ProduktService.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ServiceLayer
 {
@@ -21,6 +23,19 @@ namespace ServiceLayer
         {
             return _context.Produkter;
         }
+        public async Task<ProduktDto> GetProduktDtoById(int id)
+        {
+            var produktdto = await _context.Produkter.Select(b =>
+            new ProduktDto()
+            {
+                 ProduktNavn = b.ProduktNavn,
+                 Pris = b.Pris,
+                 ProduktId = b.ProduktId,
+                 ProduktFoto = b.ProduktFoto.Select(u => u.FotoUrl).SingleOrDefault()
+            }).SingleOrDefaultAsync(b => b.ProduktId == id);
+
+            return produktdto;
+        }
         public IQueryable<Kategori> GetKategorier()
         {
             return _context.Kategorier;
@@ -37,30 +52,28 @@ namespace ServiceLayer
                 .Include(p => p.Producent)
                 .Where(r => string.IsNullOrEmpty(name) || r.ProduktNavn.Contains(name) || r.Producent.ProducentNavn.Contains(name) || r.Kategori.KategoriNavn.Contains(name))
                 .OrderBy(r => r.ProduktNavn);
-
         }
 
-        public Produkt GetProduktById(int produktId)
+        public async Task<Produkt> GetProduktById(int produktId)
         {
-            return _context.Produkter
+            return await _context.Produkter
                 .Include(p => p.Producent)
                 .Include(f => f.ProduktFoto)
                 .Include(k => k.Kategori)
-                .SingleOrDefault(x => x.ProduktId == produktId);
+                .SingleOrDefaultAsync(x => x.ProduktId == produktId);
         }
 
         public Produkt Update(Produkt updatedProdukt)
         {
             
             _context.Produkter.Update(updatedProdukt);
-            
-
+            Commit();
             return updatedProdukt;
         }
 
-        public Produkt Add(Produkt newProdukt)
+        public async Task<Produkt> Add(Produkt newProdukt)
         {
-            _context.Produkter.Add(newProdukt);
+            await _context.Produkter.AddAsync(newProdukt);
             return newProdukt;
         }
 
@@ -70,13 +83,14 @@ namespace ServiceLayer
             return 0;
         }
 
-        public Produkt Delete(int id)
+        public async Task<Produkt> Delete(int id)
         {
-            var produkt = GetProduktById(id);
+            var produkt = await GetProduktById(id);
             if (produkt != null)
             {
                 _context.Produkter.Remove(produkt);
             }
+            Commit();
             return produkt;
         }
 

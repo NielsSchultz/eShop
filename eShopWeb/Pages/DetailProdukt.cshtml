@@ -3,28 +3,32 @@
 @{
     ViewData["Title"] = Model.Produkt.ProduktNavn;
 }
+<div class="center-align">
+    <h2>@Model.Produkt.ProduktNavn</h2>
+    @if (@Model.Produkt.ProduktFoto.Select(c => c.FotoUrl).Count() >= 1)
+    {
+        <img class="card-img-top" src="@Model.Produkt.ProduktFoto.Select(c=>c.FotoUrl).First() ">
+    }
+    else
+    {
+        <img class="card-img-top" src="https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/181/2019/09/09091628/Image-Coming-Soon.png">
 
-<h2>@Model.Produkt.ProduktNavn</h2>
-@if (@Model.Produkt.ProduktFoto.Select(c => c.FotoUrl).Count() >= 1)
-{
-    <img class="card-img-top" src="@Model.Produkt.ProduktFoto.Select(c=>c.FotoUrl).First() ">
-}
-else
-{
-    <img class="card-img-top" src="https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/181/2019/09/09091628/Image-Coming-Soon.png">
+    }
+    <p>Kategori: @Model.Produkt.Kategori.KategoriNavn</p>
+    <p>Producent: @Model.Produkt.Producent.ProducentNavn</p>
 
-}
-<p>@Model.Produkt.Kategori.KategoriNavn</p>
-<p>@Model.Produkt.Producent.ProducentNavn</p>
-
-<div>
-    Pris: @Model.Produkt.Pris
-</div>
-<form method="post">
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Læg i kurv</button>
+    <div>
+        Pris: @Model.Produkt.Pris
     </div>
-</form>
-<div>
-    <a asp-page="./Index">Tilbage til forsiden</a>
+    @*<form method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Læg i kurv</button>
+        </div>
+    </form>*@
+    <form method="post">
+        <button type="submit" class="btn"><i class="material-icons large">add_shopping_cart</i></button>
+    </form>
+    <div>
+        <a asp-page="./Index">Tilbage til forsiden</a>
+    </div>
 </div>

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using ServiceLayer;
+using ServiceLayer.ProduktService.Dto;
 
 namespace eShopWeb.Pages
 {
@@ -56,7 +57,7 @@ namespace eShopWeb.Pages
             try
             {
                 Produkter = _eShopService.GetProdukterByName(SearchTerm).ToList();
-                Kategorier = _eShopService.GetKategorier().ToList();
+                Kategorier =  _eShopService.GetKategorier().ToList();
                 Producenter = _eShopService.GetProducenter().ToList();
             }
             catch (Exception ex)
@@ -74,7 +75,7 @@ namespace eShopWeb.Pages
                 .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            Log.Information("Loading index");
+            Log.Information("Loading index OnPostProducent");
 
             try
             {
@@ -97,7 +98,7 @@ namespace eShopWeb.Pages
                 .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            Log.Information("Loading index");
+            Log.Information("Loading index OnPostKategori");
 
             try
             {
@@ -112,7 +113,7 @@ namespace eShopWeb.Pages
 
             Log.CloseAndFlush();
         }
-        public void OnPostAddToCart(int produktId)
+        public async void OnPostAddToCart(int produktId)
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -120,35 +121,36 @@ namespace eShopWeb.Pages
                 .WriteTo.File("logs\\myapp.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            Log.Information("Loading index");
+            Log.Information("Loading index OnPostAddToCart");
 
             if (ModelState.IsValid)
             {
-                Produkt = _eShopService.GetProduktById(produktId);
-                List<Produkt> kurv = HttpContext.Session.Get<List<Produkt>>("kurv");
+                ProduktDto ProduktDto = await _eShopService.GetProduktDtoById(produktId);
+                List<ProduktDto> kurv = HttpContext.Session.Get<List<ProduktDto>>("kurv");
                 if (kurv == null)
                 {
-                    kurv = new List<Produkt>();
+                    kurv = new List<ProduktDto>();
                 }
                 //kurv.Add(Produkt);
-                kurv.Add(new Produkt
+                kurv.Add(new ProduktDto
                 {
-                    ProduktId = Produkt.ProduktId,
-                    ProduktNavn = Produkt.ProduktNavn,
-                    Pris = Produkt.Pris
+                    ProduktId = ProduktDto.ProduktId,
+                    ProduktNavn = ProduktDto.ProduktNavn,
+                    Pris = ProduktDto.Pris,
+                    Styk = ProduktDto.Styk += 1
                 });
                 HttpContext.Session.Set("kurv", kurv);
 
             }
             try
             {
-                Produkter = _eShopService.GetProdukterByName().ToList();
-                Kategorier = _eShopService.GetKategorier().ToList();
-                Producenter = _eShopService.GetProducenter().ToList();
+                Produkter = await _eShopService.GetProdukterByName().ToListAsync();
+                Kategorier = await _eShopService.GetKategorier().ToListAsync();
+                Producenter = await _eShopService.GetProducenter().ToListAsync();
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Det virker squ ik(OnPostKategori)");
+                Log.Error(ex, "Det virker squ ik(OnPostAddToCart)");
             }
 
             Log.CloseAndFlush();
