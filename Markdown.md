@@ -18,7 +18,7 @@
 - [ ] Der skal være en Update knap, som opdaterer priserne hvis man ændrer antallet.
 - [ ] Det skal være muligt at fjerne et produkt fra varekurven, hvis man fortryder valget
 - [ ] Der skal være en Checkout knap, som fører til Checkout-siden
-- [ ] Der skal være en knap, der giver mulighed for at fortsætte med at handle, inden man går til checkout
+- [x] Der skal være en knap, der giver mulighed for at fortsætte med at handle, inden man går til checkout
 
 ### Krav til checkout
 - [ ] Brugeren skal afgive oplysninger om email, navn, adresse, valg af betalingsmiddel og forsendelse

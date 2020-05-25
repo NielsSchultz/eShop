@@ -1,7 +1,9 @@
 ﻿@page
 @model eShopWeb.Pages.KassenModel
-
-<h1>Velkommen til kassen</h1>
+@{
+    decimal total = 0;
+}
+<h1 class="center-align teal-text">Velkommen til kassen</h1>
 @if (Model.Kunden == null)
 {
     <h3>For at fortsætte med dit køb kræver det at du er <a asp-page="Login">logget ind</a></h3>
@@ -28,6 +30,7 @@ else
         <tbody>
             @foreach (var item in Model.vareKurv)
             {
+                total += item.Pris * item.Styk;
                 <tr>
                     <td>
                         <img style="max-height:100px" src="@item.ProduktFoto">
@@ -43,6 +46,15 @@ else
                     </td>
                 </tr>
             }
+            <tr>
+                <td>Total:</td>
+                <td></td>
+                <td></td>
+                <td>@total kr</td>
+            </tr>
         </tbody>
+
     </table>
+    <a asp-page="./Index">Tilbage til forsiden</a>
+
 }
