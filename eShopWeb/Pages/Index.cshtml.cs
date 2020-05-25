@@ -156,7 +156,8 @@ namespace eShopWeb.Pages
                         ProduktId = ProduktDto.ProduktId,
                         ProduktNavn = ProduktDto.ProduktNavn,
                         Pris = ProduktDto.Pris,
-                        Styk = ProduktDto.Styk = 1
+                        Styk = ProduktDto.Styk = 1,
+                        ProduktFoto = ProduktDto.ProduktFoto
                     });
                 }
                 

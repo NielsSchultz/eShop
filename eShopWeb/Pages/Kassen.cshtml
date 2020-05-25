@@ -12,7 +12,13 @@ else
         <thead>
             <tr>
                 <th>
+                    <label>Billede</label>
+                </th>
+                <th>
                     <label>Produkt</label>
+                </th>
+                <th>
+                    <label>Antal</label>
                 </th>
                 <th>
                     <label>Pris</label>
@@ -24,10 +30,16 @@ else
             {
                 <tr>
                     <td>
+                        <img style="max-height:100px" src="@item.ProduktFoto">
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.ProduktNavn)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Pris)
+                        @Html.DisplayFor(modelItem => item.Styk)
+                    </td>
+                    <td>
+                        @(item.Pris * item.Styk)
                     </td>
                 </tr>
             }
