@@ -1,0 +1,4 @@
+2020-11-07 10:55:02.783 +01:00 [INF] Loading index
+2020-11-07 10:55:42.451 +01:00 [INF] Loading index
+2020-11-07 10:55:48.712 +01:00 [INF] Loading index OnPostKategori
+2020-11-07 10:55:50.466 +01:00 [INF] Loading index

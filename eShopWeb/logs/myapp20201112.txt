@@ -1,0 +1,154 @@
+2020-11-12 11:49:03.289 +01:00 [INF] Loading index
+2020-11-12 11:49:03.354 +01:00 [INF] Entity Framework Core 3.1.3 initialized 'eShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-11-12 11:49:03.519 +01:00 [DBG] queryContext => new QueryingEnumerable<Produkt>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache, 
+    null, 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, int[], ResultCoordinator, Produkt>, 
+    DataLayer.Entities.eShopContext, 
+    DiagnosticsLogger<Query>
+)
+2020-11-12 11:49:03.534 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2020-11-12 11:49:03.537 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2020-11-12 11:49:03.538 +01:00 [DBG] Opening connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.538 +01:00 [DBG] Opened connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.541 +01:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProduktId], [p].[KategoriId], [p].[Pris], [p].[ProducentId], [p].[ProduktNavn], [k].[KategoriId], [k].[KategoriNavn], [p0].[ProducentId], [p0].[ProducentNavn], [p1].[ProduktFotoId], [p1].[FotoUrl], [p1].[ProduktId]
+FROM [Produkter] AS [p]
+LEFT JOIN [Kategorier] AS [k] ON [p].[KategoriId] = [k].[KategoriId]
+LEFT JOIN [Producenter] AS [p0] ON [p].[ProducentId] = [p0].[ProducentId]
+LEFT JOIN [ProduktFoto] AS [p1] ON [p].[ProduktId] = [p1].[ProduktId]
+ORDER BY [p].[ProduktNavn], [p].[ProduktId], [p1].[ProduktFotoId]
+2020-11-12 11:49:03.570 +01:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProduktId], [p].[KategoriId], [p].[Pris], [p].[ProducentId], [p].[ProduktNavn], [k].[KategoriId], [k].[KategoriNavn], [p0].[ProducentId], [p0].[ProducentNavn], [p1].[ProduktFotoId], [p1].[FotoUrl], [p1].[ProduktId]
+FROM [Produkter] AS [p]
+LEFT JOIN [Kategorier] AS [k] ON [p].[KategoriId] = [k].[KategoriId]
+LEFT JOIN [Producenter] AS [p0] ON [p].[ProducentId] = [p0].[ProducentId]
+LEFT JOIN [ProduktFoto] AS [p1] ON [p].[ProduktId] = [p1].[ProduktId]
+ORDER BY [p].[ProduktNavn], [p].[ProduktId], [p1].[ProduktFotoId]
+2020-11-12 11:49:03.579 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.580 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.582 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.584 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.585 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.586 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.587 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Kategori' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.588 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.589 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Producent' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'Produkt' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.590 +01:00 [DBG] Context 'eShopContext' started tracking 'ProduktFoto' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2020-11-12 11:49:03.594 +01:00 [DBG] A data reader was disposed.
+2020-11-12 11:49:03.594 +01:00 [DBG] Closing connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.595 +01:00 [DBG] Closed connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.598 +01:00 [DBG] queryContext => new QueryingEnumerable<Kategori>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache, 
+    null, 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, int[], ResultCoordinator, Kategori>, 
+    DataLayer.Entities.eShopContext, 
+    DiagnosticsLogger<Query>
+)
+2020-11-12 11:49:03.598 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2020-11-12 11:49:03.598 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2020-11-12 11:49:03.598 +01:00 [DBG] Opening connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.598 +01:00 [DBG] Opened connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.598 +01:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[KategoriId], [k].[KategoriNavn]
+FROM [Kategorier] AS [k]
+2020-11-12 11:49:03.600 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [k].[KategoriId], [k].[KategoriNavn]
+FROM [Kategorier] AS [k]
+2020-11-12 11:49:03.601 +01:00 [DBG] A data reader was disposed.
+2020-11-12 11:49:03.601 +01:00 [DBG] Closing connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.601 +01:00 [DBG] Closed connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.603 +01:00 [DBG] queryContext => new QueryingEnumerable<Producent>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache, 
+    null, 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, int[], ResultCoordinator, Producent>, 
+    DataLayer.Entities.eShopContext, 
+    DiagnosticsLogger<Query>
+)
+2020-11-12 11:49:03.604 +01:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2020-11-12 11:49:03.604 +01:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2020-11-12 11:49:03.604 +01:00 [DBG] Opening connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.604 +01:00 [DBG] Opened connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.604 +01:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProducentId], [p].[ProducentNavn]
+FROM [Producenter] AS [p]
+2020-11-12 11:49:03.605 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[ProducentId], [p].[ProducentNavn]
+FROM [Producenter] AS [p]
+2020-11-12 11:49:03.605 +01:00 [DBG] A data reader was disposed.
+2020-11-12 11:49:03.605 +01:00 [DBG] Closing connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
+2020-11-12 11:49:03.605 +01:00 [DBG] Closed connection to database 'eShop' on server '(localdb)\mssqllocaldb'.
